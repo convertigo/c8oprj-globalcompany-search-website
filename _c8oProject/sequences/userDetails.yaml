@@ -1,0 +1,244 @@
+accessibility: Hidden
+sheetLocation: 1
+↓retrievingStateFromSession1 [steps.SimpleStep-1333614078405]: 
+  expression: |
+    'var authUsername = context.httpSession.getAttribute("authenticated");
+    log.message("Username : ''" + authUsername + "''");
+    var authenticated = authUsername != null ? true : false;
+    '
+↓jIfAuthenticated [steps.IfStep-1333614078408]: 
+  condition: authenticated
+  ↓authenticated [steps.ElementStep-1333614078411]: 
+    expression: authUsername
+    nodeName: authenticated
+  ↓Complex_method_container [steps.XMLComplexStep-1333614298147]: 
+    nodeName: method_container
+    output: false
+    ↓Input_variables [steps.InputVariablesStep-1333614351724]: 
+      output: true
+    ↓Call_globalCompanySearchWebsite_myDatabaseConnector_userAuthTest [steps.TransactionStep-1333617478989]: 
+      sourceTransaction: globalCompanySearchWebsite.myDatabaseConnector.userAuthTest
+      xmlComplexTypeAffectation: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+          - schemaDefinition: 
+            - ↑pLocalPart: myDatabaseConnector__userAuthTestResponseType
+            - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+      ↓username [variables.StepVariable-1333617478991]: 
+        description: username
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333614351724
+              - java.lang.String: 
+                - ↑value: ./username
+    ↓IfUsernameExists [steps.IfExistStep-1333617578504]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333617478989
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row
+      ↓Call_globalCompanySearchWebsite_globalCompany_HR_WSSOAPBinding_CgetEmployee [steps.TransactionStep-1333617618691]: 
+        sourceTransaction: globalCompanySearchWebsite.globalCompany_HR_WSSOAPBinding.CgetEmployee
+        xmlComplexTypeAffectation: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+            - schemaDefinition: 
+              - ↑pLocalPart: globalCompany_HR_WSSOAPBinding__CgetEmployeeResponseType
+              - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+        ↓glob_employeeId [variables.StepVariable-1333614323721]: 
+          description: glob_employeeId
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1333617478989
+                - java.lang.String: 
+                  - ↑value: ./document/sql_output/row/@employeeId
+      ↓IfErrorExist [steps.IfExistStep-1333617641091]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333617618691
+              - java.lang.String: 
+                - ↑value: ./document/error
+        ↓Element_erreur [steps.XMLElementStep-1333614478082]: 
+          nodeName: erreur
+          nodeText: Error while retrieving your personnal information.
+        ↓Return [steps.ReturnStep-1333614416905]: 
+      ↓IfErrorExist1 [steps.IfExistStep-1333617642864]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333617618691
+              - java.lang.String: 
+                - ↑value: ./document/getEmployeeResponse/response/ws_error
+        ↓Concat_erreur [steps.XMLConcatStep-1333614631822]: 
+          isEnabled: false
+          nodeName: erreur
+          sourcesDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: 'Error while retrieving your personnal information: '''
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                        - java.lang.String: 
+                          - ↑value: 1333617618691
+                        - java.lang.String: 
+                          - ↑value: ./document/getEmployeeResponse/response/ws_error
+                    - java.lang.String: 
+                      - ↑value: ''
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: '''.'
+        ↓Concat_message [steps.XMLConcatStep-1333617869200]: 
+          nodeName: message
+          separator: 
+          sourcesDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: 'No personnal information found for user: '''
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                        - java.lang.String: 
+                          - ↑value: 1333614351724
+                        - java.lang.String: 
+                          - ↑value: ./username
+                    - java.lang.String: 
+                      - ↑value: ''
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: '''.'
+        ↓Return [steps.ReturnStep-1333614584015]: 
+      ↓IfResponseExists [steps.IfExistStep-1333617643667]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333617618691
+              - java.lang.String: 
+                - ↑value: ./document/getEmployeeResponse/response/employee
+        ↓Copy_businesses [steps.XMLCopyStep-1333614529959]: 
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1333617618691
+                - java.lang.String: 
+                  - ↑value: ./document/getEmployeeResponse/response/employee
+        ↓Return [steps.ReturnStep-1333614529962]: 
+    ↓message [steps.XMLElementStep-1333614529965]: 
+      isEnabled: false
+      nodeName: message
+      nodeText: No personnal information found.
+    ↓Concat_message [steps.XMLConcatStep-1333617693177]: 
+      nodeName: message
+      separator: 
+      sourcesDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: description
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 'No personnal information found for user: '''
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: description
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: 1333614351724
+                    - java.lang.String: 
+                      - ↑value: ./username
+                - java.lang.String: 
+                  - ↑value: ''
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: description
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: '''.'
+↓userDetails [core.Sheet]: 
+  url: xsl/userDetails.xsl
+↓username [variables.RequestableVariable-1333616860461]: 
+↓Test_Case_ko [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1333616874391]: 
+    value: convertigo
+↓Test_Case_ok [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1333616872982]: 
+    value: allen
+↓Test_Case_ok1 [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1333617498708]: 
+    value: bean

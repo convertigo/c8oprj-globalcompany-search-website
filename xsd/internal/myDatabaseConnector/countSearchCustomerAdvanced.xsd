@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:globalCompanySearchWebsite_ns="http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite">
+    <element name="myDatabaseConnector__countSearchCustomerAdvanced" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerAdvancedRequestData">
+        <annotation/>
+    </element>
+    <complexType name="myDatabaseConnector__countSearchCustomerAdvancedRequestData">
+        <annotation/>
+        <sequence>
+            <element name="request" type="string">
+                <annotation>
+                    <appinfo>request</appinfo>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+    <element name="myDatabaseConnector__countSearchCustomerAdvancedResponse">
+        <complexType>
+            <sequence>
+                <element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerAdvancedResponseData"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="myDatabaseConnector__countSearchCustomerAdvancedResponseData">
+        <all>
+            <element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+            <element minOccurs="0" name="sql_output">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="row">
+                            <complexType>
+                                <attribute name="res_number" type="long"/>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+        <attribute name="connector" type="string"/>
+        <attribute name="context" type="string"/>
+        <attribute name="contextId" type="string"/>
+        <attribute name="fromStub" type="string"/>
+        <attribute name="fromcache" type="string"/>
+        <attribute name="generated" type="string"/>
+        <attribute name="project" type="string"/>
+        <attribute name="screenclass" type="string"/>
+        <attribute name="sequence" type="string"/>
+        <attribute name="signature" type="string"/>
+        <attribute name="transaction" type="string"/>
+        <attribute name="userReference" type="string"/>
+        <attribute name="version" type="string"/>
+    </complexType>
+    <complexType name="myDatabaseConnector__countSearchCustomerAdvancedResponseType">
+        <sequence>
+            <element name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerAdvancedResponseData"/>
+        </sequence>
+    </complexType>
+    <complexType name="ConvertigoErrorContextVariable">
+        <attribute name="name" type="string"/>
+        <attribute name="value" type="string"/>
+    </complexType>
+    <complexType name="ConvertigoErrorContext">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="variable" type="globalCompanySearchWebsite_ns:ConvertigoErrorContextVariable"/>
+        </sequence>
+    </complexType>
+    <complexType name="ConvertigoError">
+        <sequence minOccurs="0">
+            <element name="code" type="integer"/>
+            <element name="message" type="string"/>
+            <element name="details" type="string"/>
+            <element name="context" type="globalCompanySearchWebsite_ns:ConvertigoErrorContext"/>
+            <element name="exception" type="string"/>
+            <element name="stacktrace" type="string"/>
+        </sequence>
+        <attribute name="project" type="string"/>
+        <attribute name="connector" type="string"/>
+        <attribute name="transaction" type="string"/>
+        <attribute name="sequence" type="string"/>
+        <attribute name="type">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="c8o"/>
+                    <enumeration value="project"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+</schema>

@@ -1,0 +1,272 @@
+accessibility: Hidden
+sheetLocation: 1
+↓retrievingStateFromSession1 [steps.SimpleStep-1333443213295]: 
+  expression: |
+    'var authUsername = context.httpSession.getAttribute("authenticated");
+    log.message("Username : ''" + authUsername + "''");
+    var authenticated = authUsername != null ? true : false;
+    '
+↓jIfAuthenticated [steps.IfStep-1333443213298]: 
+  condition: authenticated
+  ↓authenticated [steps.ElementStep-1333443213301]: 
+    expression: authUsername
+    nodeName: authenticated
+  ↓Complex_method_container [steps.XMLComplexStep-1333463848952]: 
+    nodeName: method_container
+    output: false
+    ↓ifAllVariablesEmpty [steps.IfStep-1333463842772]: 
+      condition: (name==null || name=="") && (firstname==null || firstname=="") && (company==null || company=="")
+      ↓erreur [steps.XMLElementStep-1328550406565]: 
+        nodeName: erreur
+        nodeText: 'Error: empty query.'
+      ↓Return [steps.ReturnStep-1328550381833]: 
+    ↓Input_vars [steps.InputVariablesStep-1333463843016]: 
+      output: true
+    ↓requestVariableCreation [steps.SimpleStep-1333463843169]: 
+      expression: |
+        'var request = "";
+        if (name != null && name != "") {
+        	request += "name LIKE ''%" + name + "%''";
+        }
+        if (firstname != null && firstname != "") {
+        	if (request != "") {
+        		request += " AND ";
+        	}
+        	request += "firstname LIKE ''%" + firstname + "%''";
+        }
+        if (company != null && company != "") {
+        	if (request != "") {
+        		request += " AND ";
+        	}
+        	request += "company LIKE ''%" + company + "%''";
+        }
+        '
+    ↓request1 [steps.ElementStep-1333463843326]: 
+      expression: request
+      nodeName: request
+      output: false
+    ↓Call_searchCustomerAdvanced [steps.TransactionStep-1333463843505]: 
+      sourceTransaction: globalCompanySearchWebsite.myDatabaseConnector.searchCustomerAdvanced
+      xmlComplexTypeAffectation: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+          - schemaDefinition: 
+            - ↑pLocalPart: myDatabaseConnector__searchCustomerAdvancedResponseType
+            - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+      ↓request [variables.StepVariable-1328547542122]: 
+        description: request
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463843326
+              - java.lang.String: 
+                - ↑value: .
+      ↓start [variables.StepVariable-1328636065565]: 
+        description: beginning
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463843016
+              - java.lang.String: 
+                - ↑value: ./start
+        value: 
+    ↓IfErrorExist [steps.IfExistStep-1333463843666]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333463843505
+            - java.lang.String: 
+              - ↑value: ./document/error
+      ↓Concat_erreur [steps.XMLConcatStep-1328547093128]: 
+        nodeName: erreur
+        separator: 
+        sourcesDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: 'Error while executing query with name: '''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                      - java.lang.String: 
+                        - ↑value: 1333463843016
+                      - java.lang.String: 
+                        - ↑value: ./name
+                  - java.lang.String: 
+                    - ↑value: ''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: ''', firstname: '''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                      - java.lang.String: 
+                        - ↑value: 1333463843016
+                      - java.lang.String: 
+                        - ↑value: ./firstname
+                  - java.lang.String: 
+                    - ↑value: ''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: ''', and company: '''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                      - java.lang.String: 
+                        - ↑value: 1333463843016
+                      - java.lang.String: 
+                        - ↑value: ./company
+                  - java.lang.String: 
+                    - ↑value: ''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: '''.'
+      ↓Return [steps.ReturnStep-1328547093131]: 
+    ↓Call_countSearchCustomerAdvanced [steps.TransactionStep-1333463843828]: 
+      sourceTransaction: globalCompanySearchWebsite.myDatabaseConnector.countSearchCustomerAdvanced
+      xmlComplexTypeAffectation: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+          - schemaDefinition: 
+            - ↑pLocalPart: myDatabaseConnector__countSearchCustomerAdvancedResponseType
+            - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+      ↓request [variables.StepVariable-1328693372965]: 
+        description: request
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463843326
+              - java.lang.String: 
+                - ↑value: .
+    ↓nbResults [steps.XMLElementStep-1333463843990]: 
+      nodeName: nbResults
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333463843828
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/@res_number
+    ↓IfRowsExist [steps.IfExistStep-1333555279276]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333463843505
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row
+      ↓Copy_result [steps.XMLCopyStep-1333555304618]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463843505
+              - java.lang.String: 
+                - ↑value: ./document/sql_output/row
+      ↓Return [steps.ReturnStep-1333555308951]: 
+    ↓message [steps.XMLElementStep-1333555312971]: 
+      nodeName: message
+      nodeText: No customer found for these keywords.
+↓customersList [core.Sheet]: 
+  url: xsl/customersList.xsl
+↓name [variables.RequestableVariable-1328547093141]: 
+↓firstname [variables.RequestableVariable-1328547715848]: 
+↓company [variables.RequestableVariable-1328547722514]: 
+↓start [variables.RequestableVariable-1328635946826]: 
+↓Test_Case_1 [core.TestCase]: 
+  ↓firstname [variables.TestCaseVariable-1328550116763]: 
+    value: ilia
+  ↓company [variables.TestCaseVariable-1328550116766]: 
+    value: fac
+↓Test_Case_2 [core.TestCase]: 
+  ↓name [variables.TestCaseVariable-1328550228433]: 
+    value: good
+  ↓company [variables.TestCaseVariable-1328550228439]: 
+    value: fac
+↓Test_Case_3 [core.TestCase]: 
+  ↓name [variables.TestCaseVariable-1328550258423]: 
+    value: good
+  ↓firstname [variables.TestCaseVariable-1328550258426]: 
+    value: ilia
+↓Test_Case_4 [core.TestCase]: 
+  ↓name [variables.TestCaseVariable-1328550276641]: 
+    value: good
+↓Test_Case_5 [core.TestCase]: 
+  ↓firstname [variables.TestCaseVariable-1328550296273]: 
+    value: ilia
+↓Test_Case_6 [core.TestCase]: 
+  ↓company [variables.TestCaseVariable-1328550319993]: 
+    value: fac
+↓Test_Case_empty [core.TestCase]: 
+↓Test_Case_empty1 [core.TestCase]: 
+  ↓name [variables.TestCaseVariable-1333555396680]: 
+    value: 
+  ↓firstname [variables.TestCaseVariable-1333555396682]: 
+    value: 
+  ↓company [variables.TestCaseVariable-1333555396684]: 
+    value: 
+  ↓start [variables.TestCaseVariable-1333555396686]: 
+    value: 0
+↓Test_Case_full [core.TestCase]: 
+  ↓name [variables.TestCaseVariable-1328547760730]: 
+    value: good
+  ↓firstname [variables.TestCaseVariable-1328547760732]: 
+    value: ilia
+  ↓company [variables.TestCaseVariable-1328547760734]: 
+    value: fac

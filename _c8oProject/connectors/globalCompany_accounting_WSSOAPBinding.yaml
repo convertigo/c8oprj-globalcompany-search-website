@@ -1,0 +1,63 @@
+authenticationType: Basic
+baseDir: /jk/demo/cems/projects/globalCompany_accounting_WS/.wsl
+server: demo.convertigo.net
+↓CgetBill [transactions.XmlHttpTransaction]: 
+  ↑default: true
+  accessibility: Hidden
+  errorOnSoapFault: false
+  httpParameters: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: Content-Type
+            - java.lang.String: 
+              - ↑value: text/xml
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: Host
+            - java.lang.String: 
+              - ↑value: demo.convertigo.net
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: SOAPAction
+            - java.lang.String: 
+              - ↑value: globalCompany_accounting_WS?getBill
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: user-agent
+            - java.lang.String: 
+              - ↑value: Convertigo EMS 6.1.0 (build 29965)
+  httpPool: global
+  httpVerb: POST
+  ignoreSoapEnveloppe: true
+  requestTemplate: /soap-templates/globalCompany_accounting_WSSOAPBinding/CgetBill.xml
+  responseElementQName: globalCompany_accounting_WS_ns:getBillResponse
+  xmlElementRefAffectation: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+      - schemaDefinition: 
+        - ↑pLocalPart: getBillResponse
+  xmlEncoding: UTF-8
+  ↓Test_Case_ko [core.TestCase]: 
+    ↓glob_billId [variables.TestCaseVariable-1342195623348]: 
+      description: glob_billId
+      value: 562
+  ↓Test_Case_ok [core.TestCase]: 
+    ↓glob_billId [variables.TestCaseVariable-1342195623352]: 
+      description: glob_billId
+      value: 1234
+  ↓glob_billId [variables.RequestableHttpVariable-1342195623355]: 
+    description: glob_billId
+    doFileUploadContentType: application/octet-stream
+    httpMethod: POST
+    httpName: GLOB_BILLID

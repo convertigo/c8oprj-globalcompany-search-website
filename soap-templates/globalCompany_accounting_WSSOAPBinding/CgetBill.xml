@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:glob="http://www.convertigo.com/convertigo/projects/globalCompany_accounting_WS">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <glob:getBill>
+         <!--type: string-->
+         <glob:billId>$(GLOB_BILLID)</glob:billId>
+      </glob:getBill>
+   </soapenv:Body>
+</soapenv:Envelope>

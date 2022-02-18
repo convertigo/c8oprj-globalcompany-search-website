@@ -1,0 +1,256 @@
+/** insert your custom css code here */
+body {
+	background-color:#ebe9e8;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#666;
+	text-shadow:1px 1px 0 #fff;
+	-moz-text-shadow:1px 1px 0 #fff;
+	-webkit-text-shadow:1px 1px 0 #fff;
+	-ms-text-shadow:1px 1px 0 #fff;
+	font-size:0.9em;
+	text-align:center;
+	margin:0;
+	padding:0;
+}
+img {
+	border:0;
+}
+a {
+	color:#666;
+	font-size:0.8em;
+}
+a:hover {
+	color:#00a7ca;
+}
+p {
+	text-align:left;
+	margin:0.6em 0;
+}
+input[type=submit] {
+	padding:10px 30px;
+	margin:20px 0;
+	cursor:pointer;
+	border:1px solid #aaa;
+	color:#666;
+	font-size:1.2em;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 5px #999;
+	-moz-box-shadow: 0px 0px 5px #999;
+	box-shadow: 0px 0px 5px #999;
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+input {
+	border:1px solid #aaa;
+	height:40px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 5px #999 inset;
+	-moz-box-shadow: 0px 0px 5px #999 inset;
+	box-shadow: 0px 0px 5px #999 inset;
+	background-color:#dedddc;
+	padding-left:10px;
+	color:#666;
+	font-size:1.1em;
+}
+form#login input[type=text], form input[type=password] {
+	width:200px;
+}
+form#search input[type=text], form#search input[type=password], 
+form#advancedSearch input[type=text], form#advancedSearch input[type=password], 
+form#businessSearch input[type=text], form#businessSearch input[type=password],
+form#businessAdvancedSearch input[type=text], form#businessAdvancedSearch input[type=password],
+form#changePassword input[type=text], form#changePassword input[type=password]  {
+	width:300px;
+}
+span.title {
+	font-weight:bold;
+}
+
+#centrage {
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 900px;
+	text-align:left;
+}
+.centerbloc {
+	margin-left: auto;
+	margin-right: auto;
+	width: 850px;
+}
+/* *** Header *** */
+#header {
+	background:#f0eeed url('../img/bg_header.jpg') repeat-x top left;
+	height:167px;
+}
+#header h2 {
+	margin:0;
+	padding:0;
+	background:transparent url('../img/logo_globalCompanySearchWebsite.png') no-repeat top left;
+	width:331px;
+	height:70px;
+	text-indent:-3000px;
+	float:left;
+	margin-top:60px;
+}
+#header h3 {
+	float:left;
+	margin:0;
+	padding:0;
+	margin-left:-215px;
+	margin-top:116px;
+	font-style:italic;
+	font-size:0.9em;
+	width:300px;
+}
+#loginForm {
+	text-align:center;
+	margin:0;
+	padding:0;
+	float:right;
+	margin-top:60px;
+	margin-left:80px;
+}
+
+
+/* *** content *** */
+/*input#search_keyword {
+	width:585px;
+	height:40px;
+	margin-bottom:20px;
+}*/
+#content {
+	margin-top:50px;
+	padding-bottom:150px;
+	text-align:center;
+}
+form#login, form#search, form#advancedSearch, form#businessSearch, form#businessAdvancedSearch {
+	margin: 0 auto 0;
+	width:400px;
+}
+form#changePassword {
+	margin: 0 auto 0;
+	width:500px;
+}
+form #prev_search {
+	float:left;
+}
+form #next_search {
+	float:right;
+}
+#loginForm form#logout, #loginForm form#accountSettings, #loginForm form#searchMenu {
+	display: inline;
+	margin-left:10px;		
+}
+
+.message, .erreur_message {
+	font-weight:bold;
+	color:#815498;
+	text-align:center;
+}
+.info {
+	text-align:center;
+}
+.message img, .erreur_message img {
+	position:relative;
+	top:10px;
+	left:-10px;
+}
+p a#quickSearch, p a#advancedSearch {
+	float:right;
+}
+
+.customerResult, .businessResult, .billResult, .employeeResult {
+	border:1px solid #ccc;	
+	padding:10px 20px;
+	background-color:#eee;
+}
+.customerResult span, .businessResult span {
+	display:inline-block;
+	width:200px;
+}
+form span {
+	display:inline-block;
+	width:100px;
+}
+form#changePassword span {
+	display:inline-block;
+	width:200px;
+}
+
+.btn_businessdetail, .btn_billdetail {
+	float: right;
+	position: relative;
+	top: -102px;
+}
+#pagination {
+	clear:both;
+	position:relative;
+	top:-30px;}
+#pagination #prev_search, #pagination #next_search {
+	margin:0;
+}
+/* *** menu *** */
+#menu {
+	margin:20px;
+}
+.menuItem {
+	display:block;
+	height:30px;
+	margin:10px;
+	cursor:pointer;
+	border:1px solid #aaa;
+	color:#666;
+	font-size:1.2em;
+	text-decoration:none;
+	padding:10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 5px #999;
+	-moz-box-shadow: 0px 0px 5px #999;
+	box-shadow: 0px 0px 5px #999;
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+.menuItem:hover, input[type=submit]:hover {
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top, #fff 0%, #ddd 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ddd)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fff 0%,#ddd 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fff 0%,#ddd 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fff 0%,#ddd 100%); /* IE10+ */
+	background: linear-gradient(top, #fff 0%,#ddd 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#ddd',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+/* *** footer *** */
+#footer {
+	background:#f0eeed url('../img/bg_footer.png') repeat-x top left;
+	width:100%;
+	height:46px;
+	text-align:center;
+	font-size:0.7em;
+	color:#888;
+	padding-top:20px;
+	margin-top:0px;
+	position:fixed;
+	bottom:0px;
+}

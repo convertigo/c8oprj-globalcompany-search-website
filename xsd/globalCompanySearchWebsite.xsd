@@ -1,0 +1,1816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:globalCompanySearchWebsite_ns="http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite">
+<xsd:complexType name="ConvertigoErrorContext">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="variable" type="globalCompanySearchWebsite_ns:ConvertigoErrorContextVariable"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ConvertigoError">
+<xsd:sequence>
+<xsd:element name="context" type="globalCompanySearchWebsite_ns:ConvertigoErrorContext"/>
+<xsd:element name="exception" type="xsd:string"/>
+<xsd:element name="message" type="xsd:string"/>
+<xsd:element name="stacktrace" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ConvertigoErrorContextVariable">
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="value" type="xsd:string"/>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__businessesListResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__usersListResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="user_name" type="xsd:string"/>
+<xsd:attribute name="user_password" type="xsd:string"/>
+<xsd:attribute name="employeeId" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__customersListResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="global_company_customers">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idcustomer" type="xsd:integer"/>
+<xsd:element name="name" type="xsd:string"/>
+<xsd:element name="firstname" type="xsd:string"/>
+<xsd:element name="email" type="xsd:string"/>
+<xsd:element name="phone" type="xsd:string"/>
+<xsd:element name="company" type="xsd:string"/>
+<xsd:element name="idemployee" type="xsd:integer"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__businessesListByCustomerResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__countSearchBusinessResultsResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="res_number" type="xsd:long"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__countSearchCustomerAdvancedResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="res_number" type="xsd:long"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__countSearchCustomerResultsResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="res_number" type="xsd:long"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__customerDetailsResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__searchCustomerResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__searchCustomerAdvancedResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__userAuthTestResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="user_name" type="xsd:string"/>
+<xsd:attribute name="user_password" type="xsd:string"/>
+<xsd:attribute name="employeeId" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:element name="searchBusiness_v0Form" type="globalCompanySearchWebsite_ns:searchBusiness_v0FormRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchBusiness_v0FormResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchBusiness_v0FormResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchBusiness_v0FormRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="searchBusiness_v0FormResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__updateUserPasswordResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output" type="xsd:string"/>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__searchBusiness_v01ResponseData"/>
+<xsd:element name="myDatabaseConnector__searchBusiness_v01" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusiness_v01RequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__searchBusiness_v01Response">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusiness_v01ResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__searchBusiness_v01RequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>keyword</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>start</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="offset" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>offset</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__searchBusinessResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__searchBusiness_v0ResponseData">
+<xsd:all>
+<xsd:element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+<xsd:element minOccurs="0" name="sql_output">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:all>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__businessesList" type="globalCompanySearchWebsite_ns:myDatabaseConnector__businessesListRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__businessesListResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__businessesListResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__businessesListRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__businessesListByCustomer" type="globalCompanySearchWebsite_ns:myDatabaseConnector__businessesListByCustomerRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__businessesListByCustomerResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__businessesListByCustomerResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__businessesListByCustomerRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="idCustomer" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>idCustomer</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__countSearchBusinessResults" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchBusinessResultsRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__countSearchBusinessResultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchBusinessResultsResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__countSearchBusinessResultsRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>keyword</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__countSearchCustomerAdvanced" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerAdvancedRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__countSearchCustomerAdvancedResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerAdvancedResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__countSearchCustomerAdvancedRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="request" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>request</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__countSearchCustomerResults" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerResultsRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__countSearchCustomerResultsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerResultsResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__countSearchCustomerResultsRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>keyword</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__customerDetails" type="globalCompanySearchWebsite_ns:myDatabaseConnector__customerDetailsRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__customerDetailsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__customerDetailsResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__customerDetailsRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="customerId" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>customerId</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__customersList" type="globalCompanySearchWebsite_ns:myDatabaseConnector__customersListRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__customersListResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__customersListResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__customersListRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__searchBusiness" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__searchBusinessResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__searchBusinessRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>keyword</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>start</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="offset" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>offset</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__searchBusiness_v0" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusiness_v0RequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__searchBusiness_v0Response">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusiness_v0ResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__searchBusiness_v0RequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>keyword</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>start</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="offset" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>offset</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__searchCustomer" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchCustomerRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__searchCustomerResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchCustomerResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__searchCustomerRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>keyword</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>begining</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="offset" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>end</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__searchCustomerAdvanced" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchCustomerAdvancedRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__searchCustomerAdvancedResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchCustomerAdvancedResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__searchCustomerAdvancedRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="request" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>request</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>beginning</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="offset" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>end</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__updateUserPassword" type="globalCompanySearchWebsite_ns:myDatabaseConnector__updateUserPasswordRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__updateUserPasswordResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__updateUserPasswordResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__updateUserPasswordRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="password" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>password</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="username" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>username</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__userAuthTest" type="globalCompanySearchWebsite_ns:myDatabaseConnector__userAuthTestRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__userAuthTestResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__userAuthTestResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__userAuthTestRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="username" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>username</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="myDatabaseConnector__usersList" type="globalCompanySearchWebsite_ns:myDatabaseConnector__usersListRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__usersListResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__usersListResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__usersListRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="accountSettings" type="globalCompanySearchWebsite_ns:accountSettingsRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="accountSettingsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:accountSettingsResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="accountSettingsRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="accountSettingsResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="changePassword" type="globalCompanySearchWebsite_ns:changePasswordRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="changePasswordResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:changePasswordResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="changePasswordRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="username" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="password" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="newPassword1" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="newPassword2" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="changePasswordResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333464330045StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333464332654StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333464330045StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333464330310StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__userAuthTestResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333464330045StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="username" type="xsd:string"/>
+<xsd:element minOccurs="0" name="password" type="xsd:string"/>
+<xsd:element minOccurs="0" name="newPassword1" type="xsd:string"/>
+<xsd:element minOccurs="0" name="newPassword2" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333461418121StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__updateUserPasswordResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="changePasswordForm" type="globalCompanySearchWebsite_ns:changePasswordFormRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="changePasswordFormResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:changePasswordFormResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="changePasswordFormRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="changePasswordFormResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getCustomerDetails" type="globalCompanySearchWebsite_ns:getCustomerDetailsRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="getCustomerDetailsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:getCustomerDetailsResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="getCustomerDetailsRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="idCustomer" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="backQuery" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="name" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="firstname" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="company" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="getCustomerDetailsResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333465597728StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333465597969StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__businessesListByCustomerResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333465560743StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333465597728StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333465597728StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="idCustomer" type="xsd:string"/>
+<xsd:element minOccurs="0" name="backQuery" type="xsd:string"/>
+<xsd:element minOccurs="0" name="name" type="xsd:string"/>
+<xsd:element minOccurs="0" name="firstname" type="xsd:string"/>
+<xsd:element minOccurs="0" name="company" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="login" type="globalCompanySearchWebsite_ns:loginRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="loginResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:loginResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="loginRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="username" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="password" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="loginResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1328603481923StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1328603481923StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="username" type="xsd:string"/>
+<xsd:element minOccurs="0" name="password" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333382591164StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__userAuthTestResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="loginForm" type="globalCompanySearchWebsite_ns:loginFormRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="loginFormResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:loginFormResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="loginFormRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="loginFormResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="logout" type="globalCompanySearchWebsite_ns:logoutRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="logoutResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:logoutResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="logoutRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="logoutResponseData">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="menu" type="globalCompanySearchWebsite_ns:menuRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="menuResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:menuResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="menuRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="menuResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchBusiness_v0" type="globalCompanySearchWebsite_ns:searchBusiness_v0RequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchBusiness_v0Response">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchBusiness_v0ResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchBusiness_v0RequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="searchBusiness_v0ResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333464234073StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="business_row" type="globalCompanySearchWebsite_ns:business_row1332863548424StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1332863834534StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__customerDetailsResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333464234332StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333464234708StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchBusinessResultsResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333464234073StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="keyword" type="xsd:string"/>
+<xsd:element minOccurs="0" name="start" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333464237149StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333464234073StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="business_row" type="globalCompanySearchWebsite_ns:business_row1332863548424StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="business_row1332863548424StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="billid" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="businessid" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="customerid" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="projectName" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="revenu" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+</xsd:complexType>
+<xsd:element name="searchBusinessForm" type="globalCompanySearchWebsite_ns:searchBusinessFormRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchBusinessFormResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchBusinessFormResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchBusinessFormRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="searchBusinessFormResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchCustomer" type="globalCompanySearchWebsite_ns:searchCustomerRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchCustomerResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchCustomerResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchCustomerRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="searchCustomerResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333463741706StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333463741706StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="keyword" type="xsd:string"/>
+<xsd:element minOccurs="0" name="start" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333463717417StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333463741706StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333463742284StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerResultsResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333463741944StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchCustomerResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchCustomerAdvancedForm" type="globalCompanySearchWebsite_ns:searchCustomerAdvancedFormRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchCustomerAdvancedFormResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchCustomerAdvancedFormResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchCustomerAdvancedFormRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="searchCustomerAdvancedFormResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchCustomerForm" type="globalCompanySearchWebsite_ns:searchCustomerFormRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchCustomerFormResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchCustomerFormResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchCustomerFormRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="searchCustomerFormResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="business_row1333550833579StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="billid" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="businessid" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="customerid" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="projectName" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+<xsd:attribute name="revenu" type="xsd:string" use="optional">
+<xsd:annotation/>
+</xsd:attribute>
+</xsd:complexType>
+<xsd:complexType name="transaction1333550833597StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__customerDetailsResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchBusiness" type="globalCompanySearchWebsite_ns:searchBusinessRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchBusinessResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchBusinessResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchBusinessRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="keyword" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="searchBusinessResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333550833543StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333550833546StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333550833564StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchBusinessResultsResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333550833543StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="keyword" type="xsd:string"/>
+<xsd:element minOccurs="0" name="start" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333550833540StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333550833543StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="businessid" type="xsd:integer"/>
+<xsd:attribute name="projectName" type="xsd:string"/>
+<xsd:attribute name="revenu" type="xsd:integer"/>
+<xsd:attribute name="customerid" type="xsd:integer"/>
+<xsd:attribute name="billid" type="xsd:integer"/>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchBusinessAdvancedForm" type="globalCompanySearchWebsite_ns:searchBusinessAdvancedFormRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchBusinessAdvancedFormResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchBusinessAdvancedFormResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchBusinessAdvancedFormRequestData">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:complexType name="searchBusinessAdvancedFormResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchCustomerAdvanced" type="globalCompanySearchWebsite_ns:searchCustomerAdvancedRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchCustomerAdvancedResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchCustomerAdvancedResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchCustomerAdvancedRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="name" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="firstname" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="company" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="searchCustomerAdvancedResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333463843016StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333463843016StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="name" type="xsd:string"/>
+<xsd:element minOccurs="0" name="firstname" type="xsd:string"/>
+<xsd:element minOccurs="0" name="company" type="xsd:string"/>
+<xsd:element minOccurs="0" name="start" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333463843828StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchCustomerAdvancedResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333463843505StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchCustomerAdvancedResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333463848952StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333463843016StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="row">
+<xsd:complexType>
+<xsd:attribute name="idcustomer" type="xsd:integer"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="firstname" type="xsd:string"/>
+<xsd:attribute name="email" type="xsd:string"/>
+<xsd:attribute name="phone" type="xsd:string"/>
+<xsd:attribute name="company" type="xsd:string"/>
+<xsd:attribute name="idemployee" type="xsd:integer"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__searchBusinessAdvancedResponseData"/>
+<xsd:element name="myDatabaseConnector__searchBusinessAdvanced" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessAdvancedRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__searchBusinessAdvancedResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessAdvancedResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__searchBusinessAdvancedRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="request" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>request</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>beginning</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="offset" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>end</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="myDatabaseConnector__countSearchBusinessAdvancedResponseData"/>
+<xsd:element name="myDatabaseConnector__countSearchBusinessAdvanced" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchBusinessAdvancedRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="myDatabaseConnector__countSearchBusinessAdvancedResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchBusinessAdvancedResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="myDatabaseConnector__countSearchBusinessAdvancedRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="request" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>request</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="searchBusinessAdvanced" type="globalCompanySearchWebsite_ns:searchBusinessAdvancedRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="searchBusinessAdvancedResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:searchBusinessAdvancedResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="searchBusinessAdvancedRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="projectName" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="company" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="start" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="searchBusinessAdvancedResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333555465884StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333555465872StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="inputVars" type="globalCompanySearchWebsite_ns:inputVars1333555465884StepType">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="nbResults" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="message" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333555465911StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__countSearchBusinessAdvancedResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333555465893StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessAdvancedResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333555465884StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="projectName" type="xsd:string"/>
+<xsd:element minOccurs="0" name="company" type="xsd:string"/>
+<xsd:element minOccurs="0" name="start" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="complex1333614298147StepType">
+<xsd:annotation/>
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="userDetails" type="globalCompanySearchWebsite_ns:userDetailsRequestData">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element name="userDetailsResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="response" type="globalCompanySearchWebsite_ns:userDetailsResponseData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="userDetailsRequestData">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element name="employeeId" type="xsd:string">
+<xsd:annotation>
+<xsd:appinfo>new variable</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="userDetailsResponseData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="authenticated" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+<xsd:element minOccurs="0" name="method_container" type="globalCompanySearchWebsite_ns:method_container1333614298147StepType">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="inputVars1333614351724StepType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="employeeId" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="method_container1333614298147StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="erreur" type="xsd:string">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="transaction1333614323719StepType">
+<xsd:annotation/>
+<xsd:sequence>
+<xsd:element minOccurs="0" name="document" type="globalCompanySearchWebsite_ns:globalCompany_HR_WSSOAPBinding__CgetEmployeeResponseData">
+<xsd:annotation/>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

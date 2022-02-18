@@ -1,0 +1,15 @@
+accessibility: Hidden
+sheetLocation: 1
+↓retrievingStateFromSession [steps.SimpleStep-1328606526880]: 
+  expression: |
+    'var authUsername = context.httpSession.getAttribute("authenticated");
+    log.message("Username : ''" + authUsername + "''");
+    var authenticated = authUsername != null ? true : false;
+    '
+↓jIfAuthenticated [steps.IfStep-1333441457116]: 
+  condition: authenticated
+  ↓authenticated [steps.ElementStep-1333441557231]: 
+    expression: authUsername
+    nodeName: authenticated
+↓loginForm [core.Sheet]: 
+  url: xsl/loginForm.xsl

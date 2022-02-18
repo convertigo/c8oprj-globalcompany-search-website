@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:globalCompanySearchWebsite_ns="http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite">
+    <element name="myDatabaseConnector__searchBusiness" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessRequestData">
+        <annotation/>
+    </element>
+    <complexType name="myDatabaseConnector__searchBusinessRequestData">
+        <annotation/>
+        <sequence>
+            <element name="keyword" type="string">
+                <annotation>
+                    <appinfo>keyword</appinfo>
+                </annotation>
+            </element>
+            <element name="start" type="string">
+                <annotation>
+                    <appinfo>start</appinfo>
+                </annotation>
+            </element>
+            <element name="offset" type="string">
+                <annotation>
+                    <appinfo>offset</appinfo>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+    <element name="myDatabaseConnector__searchBusinessResponse">
+        <complexType>
+            <sequence>
+                <element name="response" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessResponseData"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="myDatabaseConnector__searchBusinessResponseData">
+        <all>
+            <element minOccurs="0" name="error" type="globalCompanySearchWebsite_ns:ConvertigoError"/>
+            <element minOccurs="0" name="sql_output">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="row">
+                            <complexType>
+                                <attribute name="businessid" type="integer"/>
+                                <attribute name="projectName" type="string"/>
+                                <attribute name="revenu" type="integer"/>
+                                <attribute name="customerid" type="integer"/>
+                                <attribute name="billid" type="integer"/>
+                                <attribute name="idcustomer" type="integer"/>
+                                <attribute name="name" type="string"/>
+                                <attribute name="firstname" type="string"/>
+                                <attribute name="email" type="string"/>
+                                <attribute name="phone" type="string"/>
+                                <attribute name="company" type="string"/>
+                                <attribute name="idemployee" type="integer"/>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+        <attribute name="connector" type="string"/>
+        <attribute name="context" type="string"/>
+        <attribute name="contextId" type="string"/>
+        <attribute name="fromStub" type="string"/>
+        <attribute name="fromcache" type="string"/>
+        <attribute name="generated" type="string"/>
+        <attribute name="project" type="string"/>
+        <attribute name="screenclass" type="string"/>
+        <attribute name="sequence" type="string"/>
+        <attribute name="signature" type="string"/>
+        <attribute name="transaction" type="string"/>
+        <attribute name="userReference" type="string"/>
+        <attribute name="version" type="string"/>
+    </complexType>
+    <complexType name="myDatabaseConnector__searchBusinessResponseType">
+        <sequence>
+            <element name="document" type="globalCompanySearchWebsite_ns:myDatabaseConnector__searchBusinessResponseData"/>
+        </sequence>
+    </complexType>
+    <complexType name="ConvertigoErrorContextVariable">
+        <attribute name="name" type="string"/>
+        <attribute name="value" type="string"/>
+    </complexType>
+    <complexType name="ConvertigoErrorContext">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="variable" type="globalCompanySearchWebsite_ns:ConvertigoErrorContextVariable"/>
+        </sequence>
+    </complexType>
+    <complexType name="ConvertigoError">
+        <sequence minOccurs="0">
+            <element name="code" type="integer"/>
+            <element name="message" type="string"/>
+            <element name="details" type="string"/>
+            <element name="context" type="globalCompanySearchWebsite_ns:ConvertigoErrorContext"/>
+            <element name="exception" type="string"/>
+            <element name="stacktrace" type="string"/>
+        </sequence>
+        <attribute name="project" type="string"/>
+        <attribute name="connector" type="string"/>
+        <attribute name="transaction" type="string"/>
+        <attribute name="sequence" type="string"/>
+        <attribute name="type">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="c8o"/>
+                    <enumeration value="project"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+</schema>

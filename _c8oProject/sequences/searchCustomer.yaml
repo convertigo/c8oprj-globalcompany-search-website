@@ -1,0 +1,177 @@
+accessibility: Hidden
+sheetLocation: 1
+↓retrievingStateFromSession1 [steps.SimpleStep-1333442877439]: 
+  expression: |
+    'var authUsername = context.httpSession.getAttribute("authenticated");
+    log.message("Username : ''" + authUsername + "''");
+    var authenticated = authUsername != null ? true : false;
+    '
+↓jIfAuthenticated [steps.IfStep-1333442877442]: 
+  condition: authenticated
+  ↓authenticated [steps.ElementStep-1333442877445]: 
+    expression: authUsername
+    nodeName: authenticated
+  ↓Complex_method_container [steps.XMLComplexStep-1333463717417]: 
+    nodeName: method_container
+    output: false
+    ↓Input_vars [steps.InputVariablesStep-1333463741706]: 
+      output: true
+    ↓Call_searchCustomer [steps.TransactionStep-1333463741944]: 
+      sourceTransaction: globalCompanySearchWebsite.myDatabaseConnector.searchCustomer
+      xmlComplexTypeAffectation: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+          - schemaDefinition: 
+            - ↑pLocalPart: myDatabaseConnector__searchCustomerResponseType
+            - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+      ↓keyword [variables.StepVariable-1328545509642]: 
+        description: keyword
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463741706
+              - java.lang.String: 
+                - ↑value: ./keyword
+      ↓start [variables.StepVariable-1328635987531]: 
+        description: beginning
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463741706
+              - java.lang.String: 
+                - ↑value: ./start
+        value: 
+    ↓IfErrorExist [steps.IfExistStep-1333463742110]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333463741944
+            - java.lang.String: 
+              - ↑value: ./document/error
+      ↓Concat_erreur [steps.XMLConcatStep-1328545591219]: 
+        nodeName: erreur
+        separator: 
+        sourcesDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: 'Error while executing query with keyword: '''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                      - java.lang.String: 
+                        - ↑value: 1333463741706
+                      - java.lang.String: 
+                        - ↑value: ./keyword
+                  - java.lang.String: 
+                    - ↑value: ''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: '''.'
+      ↓Return [steps.ReturnStep-1328545686309]: 
+    ↓Call_countSearchCustomerResults [steps.TransactionStep-1333463742284]: 
+      sourceTransaction: globalCompanySearchWebsite.myDatabaseConnector.countSearchCustomerResults
+      xmlComplexTypeAffectation: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+          - schemaDefinition: 
+            - ↑pLocalPart: myDatabaseConnector__countSearchCustomerResultsResponseType
+            - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+      ↓keyword [variables.StepVariable-1328693203082]: 
+        description: keyword
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463741706
+              - java.lang.String: 
+                - ↑value: ./keyword
+    ↓nbResults [steps.XMLElementStep-1333463742446]: 
+      nodeName: nbResults
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333463742284
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/@res_number
+    ↓IfRowsExist [steps.IfExistStep-1333463742607]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333463741944
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row
+      ↓Copy_all_rows [steps.XMLCopyStep-1329908731404]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333463741944
+              - java.lang.String: 
+                - ↑value: ./document/sql_output/row
+      ↓Return [steps.ReturnStep-1329908711198]: 
+    ↓message [steps.XMLElementStep-1333463742784]: 
+      nodeName: message
+      nodeText: No customer found for this keyword.
+↓customersList [core.Sheet]: 
+  url: xsl/customersList.xsl
+↓keyword [variables.RequestableVariable-1328545407448]: 
+↓start [variables.RequestableVariable-1328635827278]: 
+↓Test_Case_1 [core.TestCase]: 
+  ↓keyword [variables.TestCaseVariable-1328545860439]: 
+    value: le
+  ↓start [variables.TestCaseVariable-1328692684871]: 
+    value: 0
+↓Test_Case_2 [core.TestCase]: 
+  ↓keyword [variables.TestCaseVariable-1328692691787]: 
+    value: le
+  ↓start [variables.TestCaseVariable-1328692691790]: 
+    value: 3
+↓Test_Case_3 [core.TestCase]: 
+  ↓keyword [variables.TestCaseVariable-1328693459431]: 
+    value: le
+  ↓start [variables.TestCaseVariable-1328693459434]: 
+    value: 6
+↓Test_Case_4 [core.TestCase]: 
+  ↓keyword [variables.TestCaseVariable-1329755386112]: 
+    value: paloma
+  ↓start [variables.TestCaseVariable-1329755386114]: 
+    value: 0
+↓Test_Case_5 [core.TestCase]: 
+  ↓keyword [variables.TestCaseVariable-1329908605718]: 
+    value: prout
+  ↓start [variables.TestCaseVariable-1329908605721]: 
+    value: 0

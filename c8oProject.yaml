@@ -1,0 +1,30 @@
+↑convertigo: 7.9.0.m006
+↓globalCompanySearchWebsite [core.Project]: 
+  bStrictMode: false
+  comment: Mashup Sequencer project
+  corsOrigin: 
+  jsonOutput: verbose
+  jsonRoot: docNode
+  version: 7.2.0
+  ↓globalCompany_accounting_WSSOAPBinding [connectors.HttpConnector]: 🗏 connectors/globalCompany_accounting_WSSOAPBinding.yaml
+  ↓globalCompany_HR_WSSOAPBinding [connectors.HttpConnector]: 🗏 connectors/globalCompany_HR_WSSOAPBinding.yaml
+  ↓myDatabaseConnector [connectors.SqlConnector]: 🗏 connectors/myDatabaseConnector.yaml
+  ↓accountSettings [sequences.GenericSequence]: 🗏 sequences/accountSettings.yaml
+  ↓changePassword [sequences.GenericSequence]: 🗏 sequences/changePassword.yaml
+  ↓changePasswordForm [sequences.GenericSequence]: 🗏 sequences/changePasswordForm.yaml
+  ↓getBillDetails [sequences.GenericSequence]: 🗏 sequences/getBillDetails.yaml
+  ↓getCustomerDetails [sequences.GenericSequence]: 🗏 sequences/getCustomerDetails.yaml
+  ↓login [sequences.GenericSequence]: 🗏 sequences/login.yaml
+  ↓loginForm [sequences.GenericSequence]: 🗏 sequences/loginForm.yaml
+  ↓logout [sequences.GenericSequence]: 🗏 sequences/logout.yaml
+  ↓menu [sequences.GenericSequence]: 🗏 sequences/menu.yaml
+  ↓searchBusiness [sequences.GenericSequence]: 🗏 sequences/searchBusiness.yaml
+  ↓searchBusiness_v0 [sequences.GenericSequence]: 🗏 sequences/searchBusiness_v0.yaml
+  ↓searchBusinessAdvanced [sequences.GenericSequence]: 🗏 sequences/searchBusinessAdvanced.yaml
+  ↓searchBusinessAdvancedForm [sequences.GenericSequence]: 🗏 sequences/searchBusinessAdvancedForm.yaml
+  ↓searchBusinessForm [sequences.GenericSequence]: 🗏 sequences/searchBusinessForm.yaml
+  ↓searchCustomer [sequences.GenericSequence]: 🗏 sequences/searchCustomer.yaml
+  ↓searchCustomerAdvanced [sequences.GenericSequence]: 🗏 sequences/searchCustomerAdvanced.yaml
+  ↓searchCustomerAdvancedForm [sequences.GenericSequence]: 🗏 sequences/searchCustomerAdvancedForm.yaml
+  ↓searchCustomerForm [sequences.GenericSequence]: 🗏 sequences/searchCustomerForm.yaml
+  ↓userDetails [sequences.GenericSequence]: 🗏 sequences/userDetails.yaml

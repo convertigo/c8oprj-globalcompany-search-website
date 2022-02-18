@@ -1,0 +1,67 @@
+authenticationType: Basic
+baseDir: /jk/demo/cems/projects/globalCompany_HR_WS/.wsl
+server: demo.convertigo.net
+↓CgetEmployee [transactions.XmlHttpTransaction]: 
+  ↑default: true
+  accessibility: Hidden
+  errorOnSoapFault: false
+  httpParameters: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: Content-Type
+            - java.lang.String: 
+              - ↑value: text/xml
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: Host
+            - java.lang.String: 
+              - ↑value: demo.convertigo.net
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: SOAPAction
+            - java.lang.String: 
+              - ↑value: globalCompany_HR_WS?getEmployee
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: user-agent
+            - java.lang.String: 
+              - ↑value: Convertigo EMS 6.0.2 (build 29238)
+  httpPool: global
+  httpVerb: POST
+  ignoreSoapEnveloppe: true
+  requestTemplate: /soap-templates/globalCompany_HR_WSSOAPBinding/CgetEmployee.xml
+  responseElementQName: globalCompany_HR_WS_ns:getEmployeeResponse
+  xmlElementRefAffectation: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+      - schemaDefinition: 
+        - ↑pLocalPart: getEmployeeResponse
+  xmlEncoding: UTF-8
+  ↓Test_Case_ko [core.TestCase]: 
+    ↓glob_employeeId [variables.TestCaseVariable-1342195630417]: 
+      description: glob_employeeId
+      value: 160
+  ↓Test_Case_ok [core.TestCase]: 
+    ↓glob_employeeId [variables.TestCaseVariable-1342195630421]: 
+      description: glob_employeeId
+      value: 46
+  ↓Test_Case_ok1 [core.TestCase]: 
+    ↓glob_employeeId [variables.TestCaseVariable-1342195630425]: 
+      description: glob_employeeId
+      value: 100
+  ↓glob_employeeId [variables.RequestableHttpVariable-1342195630428]: 
+    description: glob_employeeId
+    doFileUploadContentType: application/octet-stream
+    httpMethod: POST
+    httpName: GLOB_EMPLOYEEID

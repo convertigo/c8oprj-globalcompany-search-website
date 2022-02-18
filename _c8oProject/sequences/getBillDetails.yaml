@@ -1,0 +1,131 @@
+accessibility: Hidden
+sheetLocation: 1
+↓retrievingStateFromSession1 [steps.SimpleStep-1333443307626]: 
+  expression: |
+    'var authUsername = context.httpSession.getAttribute("authenticated");
+    log.message("Username : ''" + authUsername + "''");
+    var authenticated = authUsername != null ? true : false;
+    '
+↓jIfAuthenticated [steps.IfStep-1333443307629]: 
+  condition: authenticated
+  ↓authenticated [steps.ElementStep-1333443307632]: 
+    expression: authUsername
+    nodeName: authenticated
+  ↓Complex_method_container [steps.XMLComplexStep-1333465545905]: 
+    nodeName: method_container
+    output: false
+    ↓Input_variables [steps.InputVariablesStep-1333465535730]: 
+      output: true
+    ↓Call_globalCompanySearchWebsite_globalCompany_accounting_WSSOAPBinding_CgetBill [steps.TransactionStep-1333465537578]: 
+      sourceTransaction: globalCompanySearchWebsite.globalCompany_accounting_WSSOAPBinding.CgetBill
+      xmlComplexTypeAffectation: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+          - schemaDefinition: 
+            - ↑pLocalPart: globalCompany_accounting_WSSOAPBinding__CgetBillResponseType
+            - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+      ↓glob_billId [variables.StepVariable-1332929162509]: 
+        description: glob_billId
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333465535730
+              - java.lang.String: 
+                - ↑value: ./idBill
+    ↓IfErrorExist [steps.IfExistStep-1333465539160]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333465537578
+            - java.lang.String: 
+              - ↑value: ./document/error
+      ↓Concat_erreur [steps.XMLConcatStep-1332930416450]: 
+        nodeName: erreur
+        separator: 
+        sourcesDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: 'Error while retrieving bill details for project: '''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                      - java.lang.String: 
+                        - ↑value: 1333465535730
+                      - java.lang.String: 
+                        - ↑value: ./projectName
+                  - java.lang.String: 
+                    - ↑value: ''
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: description
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                    - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: '''.'
+      ↓Return [steps.ReturnStep-1332930416453]: 
+    ↓IfBillExists [steps.IfExistStep-1333465540187]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333465537578
+            - java.lang.String: 
+              - ↑value: ./document/getBillResponse/response/bill
+      ↓Copy_businesses [steps.XMLCopyStep-1332930566389]: 
+        sourceDefinition: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: 1333465537578
+              - java.lang.String: 
+                - ↑value: ./document/getBillResponse/response/bill
+      ↓Return [steps.ReturnStep-1332930566392]: 
+    ↓message [steps.XMLElementStep-1333465541790]: 
+      nodeName: message
+      nodeText: No bill details found for this project.
+↓Style_sheet_billDetails [core.Sheet]: 
+  url: xsl/billDetails.xsl
+↓idBill [variables.RequestableVariable-1332929128425]: 
+↓backQuery [variables.RequestableVariable-1332929967924]: 
+↓projectName [variables.RequestableVariable-1332929967927]: 
+↓company [variables.RequestableVariable-1332941203143]: 
+↓Test_Case_ko [core.TestCase]: 
+  ↓idBill [variables.TestCaseVariable-1332929832273]: 
+    value: 1111
+  ↓backQuery [variables.TestCaseVariable-1332930657277]: 
+  ↓projectName [variables.TestCaseVariable-1332930657280]: 
+    value: test project name
+  ↓company [variables.TestCaseVariable-1332941212548]: 
+    value: dwfhwdfgh
+↓Test_Case_ok [core.TestCase]: 
+  ↓idBill [variables.TestCaseVariable-1332929821100]: 
+    value: 1256
+  ↓backQuery [variables.TestCaseVariable-1332929980959]: 
+  ↓projectName [variables.TestCaseVariable-1332929980961]: 
+    value: test project name
+  ↓company [variables.TestCaseVariable-1332941213853]: 
+    value: dfhfwghxfgj

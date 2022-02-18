@@ -1,0 +1,6 @@
+accessibility: Hidden
+sheetLocation: 1
+↓removingStateFromSession [steps.SimpleStep-1328604143008]: 
+  expression: context.httpSession.removeAttribute("authenticated");
+↓logout [core.Sheet]: 
+  url: xsl/logout.xsl

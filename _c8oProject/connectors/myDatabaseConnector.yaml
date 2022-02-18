@@ -1,0 +1,394 @@
+↑default: true
+jdbcDriverClassName: com.mysql.jdbc.Driver
+jdbcMaxConnection: 1
+jdbcURL: jdbc:mysql://database.convertigo.net:3306/training
+jdbcUserName: training_user
+jdbcUserPassword: xd2f81b8096cde392b18ffd0b366a67a4
+↓businessesList [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: SELECT * FROM global_company_businesses
+  xmlGrouping: true
+  xmlOutput: 0
+↓businessesListByCustomer [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_businesses 
+    WHERE customerid={{idCustomer}}
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓idCustomer [variables.TestCaseVariable-1328528241142]: 
+      description: idCustomer
+      value: 19
+  ↓idCustomer [variables.RequestableVariable-1328528231122]: 
+    description: idCustomer
+↓countSearchBusinessAdvanced [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT count(*) AS res_number 
+    FROM global_company_businesses  b, global_company_customers c 
+    WHERE c.idcustomer = b.customerid AND {{request}} 
+    
+    
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1333556065452]: 
+      description: request
+      value: b.projectName LIKE '%malesuada%'
+  ↓Test_Case_complet [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1333556065456]: 
+      description: request
+      value: b.projectName LIKE '%malesuada%' AND c.company  LIKE '%lectus%'
+  ↓request [variables.RequestableVariable-1333556046119]: 
+    description: request
+  ↓keyword [variables.RequestableVariable-1333555986893]: 
+    description: keyword
+↓countSearchBusinessResults [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT count(*) AS res_number 
+    FROM global_company_businesses  b, global_company_customers c 
+    WHERE c.idcustomer = b.customerid
+    AND (b.projectName LIKE '%{{keyword}}%' OR c.company  LIKE '%{{keyword}}%') 
+    
+    
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1332862521949]: 
+      description: keyword
+      value: la
+  ↓keyword [variables.RequestableVariable-1332862404708]: 
+    description: keyword
+↓countSearchCustomerAdvanced [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT count(* ) AS res_number
+    FROM global_company_customers
+    WHERE {{request}} 
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1328692957109]: 
+      description: request
+      value: name LIKE '%Hurley%' AND firstname LIKE '%Muf%'
+  ↓Test_Case1 [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1328693052952]: 
+      description: request
+      value: name LIKE '%le%'
+  ↓Test_Case_complet [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1328692957113]: 
+      description: request
+      value: name LIKE '%goodman%' AND firstname LIKE '%iliana%' AND company LIKE '%fac%'
+  ↓request [variables.RequestableVariable-1328692957116]: 
+    description: request
+↓countSearchCustomerResults [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT count(*) AS res_number 
+    FROM global_company_customers
+    WHERE name LIKE '%{{keyword}}%' OR firstname LIKE '%{{keyword}}%' OR company LIKE '%{{keyword}}%'
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case_company [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735004]: 
+      description: keyword
+      value: Nullam
+  ↓Test_Case_company1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735008]: 
+      description: keyword
+      value: Nul
+  ↓Test_Case_firstname [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735012]: 
+      description: keyword
+      value: Aphrodite
+  ↓Test_Case_firstname1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735016]: 
+      description: keyword
+      value: Aphro
+  ↓Test_Case_iter0 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735020]: 
+      description: keyword
+      value: le
+  ↓Test_Case_iter1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735024]: 
+      description: keyword
+      value: le
+  ↓Test_Case_name [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735031]: 
+      description: keyword
+      value: Mckinney
+  ↓Test_Case_name1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692735035]: 
+      description: keyword
+      value: Mckin
+  ↓keyword [variables.RequestableVariable-1328692735038]: 
+    description: keyword
+↓customerDetails [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_customers 
+    WHERE idcustomer = {{customerId}}
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case_ko [core.TestCase]: 
+    ↓customerId [variables.TestCaseVariable-1332929295424]: 
+      description: customerId
+      value: 120
+  ↓Test_Case_ok [core.TestCase]: 
+    ↓customerId [variables.TestCaseVariable-1332929286506]: 
+      description: customerId
+      value: 12
+  ↓customerId [variables.RequestableVariable-1332929279019]: 
+    description: customerId
+↓customersList [transactions.SqlTransaction]: 
+  ↑default: true
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: SELECT * FROM global_company_customers
+  xmlGrouping: true
+  xmlOutput: 2
+↓searchBusiness [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_businesses  b, global_company_customers c 
+    WHERE c.idcustomer = b.customerid
+    AND (b.projectName LIKE '%{{keyword}}%' OR c.company  LIKE '%{{keyword}}%') 
+    LIMIT {{start}}, {{offset}}
+    
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1333550377111]: 
+      description: keyword
+      value: la
+  ↓keyword [variables.RequestableVariable-1333550377114]: 
+    description: keyword
+  ↓start [variables.RequestableVariable-1333550377117]: 
+    description: start
+    value: 0
+  ↓offset [variables.RequestableVariable-1333550377120]: 
+    description: offset
+    value: 3
+↓searchBusiness_v0 [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_businesses  
+    WHERE projectName LIKE '%{{keyword}}%' 
+    LIMIT {{start}}, {{offset}}
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1332859407367]: 
+      description: keyword
+      value: la
+  ↓keyword [variables.RequestableVariable-1332859389317]: 
+    description: keyword
+  ↓start [variables.RequestableVariable-1332859389319]: 
+    description: start
+    value: 0
+  ↓offset [variables.RequestableVariable-1332859389321]: 
+    description: offset
+    value: 3
+↓searchBusinessAdvanced [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_businesses  b, global_company_customers c 
+    WHERE c.idcustomer = b.customerid AND {{request}} 
+    LIMIT {{start}}, {{offset}}
+    
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1333555480974]: 
+      description: request
+      value: b.projectName LIKE '%malesuada%'
+  ↓Test_Case1_iter0 [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1333555480978]: 
+      description: request
+      value: b.projectName LIKE '%le%'
+  ↓Test_Case1_iter1 [core.TestCase]: 
+    ↓start [variables.TestCaseVariable-1333555480985]: 
+      description: beginning
+      value: 3
+    ↓request [variables.TestCaseVariable-1333555769320]: 
+      description: request
+      value: b.projectName LIKE '%le%'
+  ↓Test_Case_complet [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1333555705920]: 
+      description: request
+      value: b.projectName LIKE '%malesuada%' AND c.company  LIKE '%lectus%'
+  ↓request [variables.RequestableVariable-1333555480992]: 
+    description: request
+  ↓start [variables.RequestableVariable-1333555480995]: 
+    description: beginning
+    value: 0
+  ↓offset [variables.RequestableVariable-1333555480998]: 
+    description: end
+    value: 3
+↓searchCustomer [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_customers
+    WHERE name LIKE '%{{keyword}}%' OR firstname LIKE '%{{keyword}}%' OR company LIKE '%{{keyword}}%'
+    LIMIT {{start}}, {{offset}}
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case_company [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328527378456]: 
+      description: keyword
+      value: Nullam
+  ↓Test_Case_company1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328527399773]: 
+      description: keyword
+      value: Nul
+  ↓Test_Case_firstname [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328527271703]: 
+      description: keyword
+      value: Aphrodite
+  ↓Test_Case_firstname1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328527273566]: 
+      description: keyword
+      value: Aphro
+  ↓Test_Case_iter0 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328635777437]: 
+      description: keyword
+      value: le
+  ↓Test_Case_iter1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328527269123]: 
+      description: keyword
+      value: le
+    ↓start [variables.TestCaseVariable-1328635742280]: 
+      description: beg
+      value: 3
+  ↓Test_Case_iter2 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328692915491]: 
+      description: keyword
+      value: le
+    ↓start [variables.TestCaseVariable-1328692915494]: 
+      description: beg
+      value: 6
+  ↓Test_Case_name [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328527274844]: 
+      description: keyword
+      value: Mckinney
+  ↓Test_Case_name1 [core.TestCase]: 
+    ↓keyword [variables.TestCaseVariable-1328527276344]: 
+      description: keyword
+      value: Mckin
+  ↓keyword [variables.RequestableVariable-1328527264552]: 
+    description: keyword
+  ↓start [variables.RequestableVariable-1328635584396]: 
+    description: begining
+    value: 0
+  ↓offset [variables.RequestableVariable-1328635584398]: 
+    description: end
+    value: 3
+↓searchCustomerAdvanced [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_customers
+    WHERE {{request}} 
+    LIMIT {{start}}, {{offset}}
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1328527788966]: 
+      description: request
+      value: name LIKE '%Hurley%' AND firstname LIKE '%Muf%'
+  ↓Test_Case1_iter0 [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1328693116080]: 
+      description: request
+      value: name LIKE '%le%'
+  ↓Test_Case1_iter1 [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1328693128435]: 
+      description: request
+      value: name LIKE '%le%'
+    ↓start [variables.TestCaseVariable-1328693136253]: 
+      description: beginning
+      value: 3
+  ↓Test_Case_complet [core.TestCase]: 
+    ↓request [variables.TestCaseVariable-1328527922958]: 
+      description: request
+      value: name LIKE '%goodman%' AND firstname LIKE '%iliana%' AND company LIKE '%fac%'
+  ↓request [variables.RequestableVariable-1328527776507]: 
+    description: request
+  ↓start [variables.RequestableVariable-1328635922959]: 
+    description: beginning
+    value: 0
+  ↓offset [variables.RequestableVariable-1328635922962]: 
+    description: end
+    value: 3
+↓updateUserPassword [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    UPDATE global_company_website_users 
+    SET user_password='{{password}}' 
+    WHERE user_name='{{username}}'
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case_ko [core.TestCase]: 
+    ↓username [variables.TestCaseVariable-1333461267184]: 
+      description: username
+      value: dkfgj
+    ↓password [variables.TestCaseVariable-1333461272255]: 
+      description: password
+      value: cfhfgj
+  ↓Test_Case_ok [core.TestCase]: 
+    ↓username [variables.TestCaseVariable-1333461267188]: 
+      description: username
+      value: allen
+    ↓password [variables.TestCaseVariable-1333461271067]: 
+      description: password
+      value: KPO53VWV2KK
+  ↓Test_Case_ok1 [core.TestCase]: 
+    ↓username [variables.TestCaseVariable-1333464802819]: 
+      description: username
+      value: convertigo
+    ↓password [variables.TestCaseVariable-1333464802822]: 
+      description: password
+      value: test
+  ↓password [variables.RequestableVariable-1333461242722]: 
+    description: password
+  ↓username [variables.RequestableVariable-1333461242724]: 
+    description: username
+↓userAuthTest [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_website_users 
+    WHERE user_name='{{username}}'
+  xmlGrouping: true
+  xmlOutput: 0
+  ↓Test_Case_ko [core.TestCase]: 
+    ↓username [variables.TestCaseVariable-1333382478937]: 
+      description: username
+      value: dkfgj
+  ↓Test_Case_ok [core.TestCase]: 
+    ↓username [variables.TestCaseVariable-1333382457003]: 
+      description: username
+      value: convertigo
+  ↓username [variables.RequestableVariable-1333382442363]: 
+    description: username
+↓usersList [transactions.SqlTransaction]: 
+  accessibility: Hidden
+  generateJsonTypes: false
+  sqlQuery: |
+    SELECT * FROM global_company_website_users
+    
+  xmlGrouping: true
+  xmlOutput: 0

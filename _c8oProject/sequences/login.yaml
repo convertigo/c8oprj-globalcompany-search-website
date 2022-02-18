@@ -1,0 +1,170 @@
+accessibility: Hidden
+sheetLocation: 1
+↓Input_vars [steps.InputVariablesStep-1328603481923]: 
+  output: true
+↓Call_globalCompanySearchWebsite_myDatabaseConnector_userAuthTest [steps.TransactionStep-1333382591164]: 
+  sourceTransaction: globalCompanySearchWebsite.myDatabaseConnector.userAuthTest
+  xmlComplexTypeAffectation: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XmlQName
+      - schemaDefinition: 
+        - ↑pLocalPart: myDatabaseConnector__userAuthTestResponseType
+        - ↑pNamespace: http://www.convertigo.com/convertigo/projects/globalCompanySearchWebsite
+  ↓username [variables.StepVariable-1333382591166]: 
+    description: username
+    sourceDefinition: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - java.lang.String: 
+            - ↑value: 1328603481923
+          - java.lang.String: 
+            - ↑value: ./username
+↓IfUsernameExistsThenElse [steps.IfExistThenElseStep-1333382668441]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1333382591164
+        - java.lang.String: 
+          - ↑value: ./document/sql_output/row
+  ↓jThen [steps.ThenStep-1333382674490]: 
+    ↓jSimpleSource_password [steps.SimpleSourceStep-1333382705755]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1333382591164
+            - java.lang.String: 
+              - ↑value: ./document/sql_output/row/@user_password
+      variableName: retrievedPassword
+    ↓jIfThenElse [steps.IfThenElseStep-1333382733484]: 
+      condition: password == ""+retrievedPassword
+      ↓jThen [steps.ThenStep-1333382733487]: 
+        ↓savingStateInSession [steps.SimpleStep-1333382733490]: 
+          expression: context.httpSession.setAttribute("authenticated", username);
+        ↓athenticationOK [steps.XMLElementStep-1333382733493]: 
+          nodeName: authenticated
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1328603481923
+                - java.lang.String: 
+                  - ↑value: ./username
+      ↓jElse [steps.ElseStep-1333382733496]: 
+        ↓Concat_erreur [steps.XMLConcatStep-1333382733499]: 
+          nodeName: erreur
+          separator: 
+          sourcesDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: Authentication error with username '
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                        - java.lang.String: 
+                          - ↑value: 1328603481923
+                        - java.lang.String: 
+                          - ↑value: ./username
+                    - java.lang.String: 
+                      - ↑value: ''
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: description
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                      - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: ''': incorrect password.'
+  ↓jElse [steps.ElseStep-1333382674492]: 
+    ↓Concat_erreur [steps.XMLConcatStep-1333382785521]: 
+      nodeName: erreur
+      separator: 
+      sourcesDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: description
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: Authentication error with username '
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: description
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: 1328603481923
+                    - java.lang.String: 
+                      - ↑value: ./username
+                - java.lang.String: 
+                  - ↑value: ''
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: description
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: ''': user not found.'
+↓loginForm [core.Sheet]: 
+  url: xsl/loginForm.xsl
+↓username [variables.RequestableVariable-1328603324494]: 
+↓password [variables.RequestableVariable-1328603331825]: 
+↓Test_Case_empty [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1328603759478]: 
+    value: 
+  ↓password [variables.TestCaseVariable-1328603759481]: 
+    value: 
+↓Test_Case_KO [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1328603700165]: 
+    value: convertigodffb
+  ↓password [variables.TestCaseVariable-1328603700168]: 
+    value: test
+↓Test_Case_KO1 [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1333382830914]: 
+    value: convertigo
+  ↓password [variables.TestCaseVariable-1333382830917]: 
+    value: dghdjfghjdkw
+↓Test_Case_OK [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1328603678927]: 
+    value: convertigo
+  ↓password [variables.TestCaseVariable-1328603678929]: 
+    value: test
+↓Test_Case_OK1 [core.TestCase]: 
+  ↓username [variables.TestCaseVariable-1333464501250]: 
+    value: convertigo
+  ↓password [variables.TestCaseVariable-1333464501253]: 
+    value: test1
