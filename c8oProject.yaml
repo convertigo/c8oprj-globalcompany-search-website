@@ -5,7 +5,7 @@
   corsOrigin: 
   jsonOutput: verbose
   jsonRoot: docNode
-  version: 7.2.0
+  version: 7.9.0
   ↓globalCompany_accounting_WSSOAPBinding [connectors.HttpConnector]: 🗏 connectors/globalCompany_accounting_WSSOAPBinding.yaml
   ↓globalCompany_HR_WSSOAPBinding [connectors.HttpConnector]: 🗏 connectors/globalCompany_HR_WSSOAPBinding.yaml
   ↓myDatabaseConnector [connectors.SqlConnector]: 🗏 connectors/myDatabaseConnector.yaml

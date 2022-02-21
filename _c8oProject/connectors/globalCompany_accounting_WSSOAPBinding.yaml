@@ -1,5 +1,7 @@
 authenticationType: Basic
-baseDir: /jk/demo/cems/projects/globalCompany_accounting_WS/.wsl
+baseDir: /convertigo/projects/globalCompany_accounting_WS/.wsl
+https: true
+port: 443
 server: demo.convertigo.net
 ↓CgetBill [transactions.XmlHttpTransaction]: 
   ↑default: true

@@ -1,5 +1,5 @@
 ↑default: true
-jdbcDriverClassName: com.mysql.jdbc.Driver
+jdbcDriverClassName: org.mariadb.jdbc.Driver
 jdbcMaxConnection: 1
 jdbcURL: jdbc:mysql://database.convertigo.net:3306/training
 jdbcUserName: training_user

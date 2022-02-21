@@ -1,5 +1,7 @@
 authenticationType: Basic
-baseDir: /jk/demo/cems/projects/globalCompany_HR_WS/.wsl
+baseDir: /convertigo/cems/projects/globalCompany_HR_WS/.wsl
+https: true
+port: 443
 server: demo.convertigo.net
 ↓CgetEmployee [transactions.XmlHttpTransaction]: 
   ↑default: true
